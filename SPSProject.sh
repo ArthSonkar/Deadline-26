@@ -17,6 +17,7 @@ do
     echo "   FILE SECURITY MANAGER"
     echo "================================"
     echo "1. Create a new file"
+    echo "3. Make file read-only"
     echo "================================"
 
     read -p "Enter your choice: " choice
@@ -35,6 +36,17 @@ do
                     touch "$DIR/$name"
                     echo "File created successfully!"
                 fi
+            fi
+            ;;
+
+        3)
+            read -p "Enter filename: " name
+
+            if [ -f "$DIR/$name" ]; then
+                chmod 444 "$DIR/$name"
+                echo "File is now read-only!"
+            else
+                echo "File does not exist!"
             fi
             ;;
     esac
