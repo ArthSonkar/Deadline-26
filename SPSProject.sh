@@ -18,6 +18,7 @@ do
     echo "================================"
     echo "1. Create a new file"
     echo "3. Make file read-only"
+    echo "6. Display current permissions."
     echo "================================"
 
     read -p "Enter your choice: " choice
@@ -48,7 +49,18 @@ do
             else
                 echo "File does not exist!"
             fi
+            ;;    
+
+        6)
+            read -p "Enter filename: " name
+
+            if [ -f "$DIR/$name" ]; then
+                ls -l "$DIR/$name"
+            else
+                echo "File does not exist!"
+            fi
             ;;
+
     esac
     echo ""
 done
